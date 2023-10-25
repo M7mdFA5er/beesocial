@@ -7,6 +7,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import Profile from '../../assets/login_bg.jpeg'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -29,7 +30,7 @@ const Navbar = () => {
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
         <div className="user">
-          <img src="../../assets/login_bg.jpeg" alt="UserProfile" />
+          <img src={Profile} alt="UserProfile" />
           <span>John Doe</span>
         </div>
       </div>
