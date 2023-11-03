@@ -1,0 +1,45 @@
+/**
+  Written by the author lama-dev need to understand how it is work
+*/
+
+$themes: (
+  light: (
+    textColor: #000,
+    bg: white,
+    logo: gold,
+    bgSoft: #f6f3f3,
+    textColorsSoft: #555,
+    border: lightgray,
+  ),
+  dark: (
+    textColor: whitesmoke,
+    bg: #222,
+    logo: goldenrod,
+    bgSoft: #333,
+    textColorsSoft: lightgray,
+    border: #444,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
